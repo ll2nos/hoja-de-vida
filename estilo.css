@@ -1,0 +1,497 @@
+/* Variables globales (custom properties) usadas en todo el CSS */
+:root {
+    /* color principal de la marca / acentos */
+    --primary-color: #1abc9c;
+    /* color secundario / para textos sobre fondos oscuros */
+    --secondary-color: #2c3e50;
+    /* color principal del texto en tema claro */
+    --text-color: #333;
+    /* color de fondo de la página en tema claro */
+    --bg-color: #f9f9f9;
+    /* color de fondo de tarjetas / secciones */
+    --card-bg: #fff;
+    /* fondo de la barra de navegación (con transparencia) */
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    /* color de bordes y elementos neutrales */
+    --border-color: #e0e0e0;
+    /* sombra global usada en tarjetas */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* transición por defecto para animaciones suaves */
+    --transition: all 0.3s ease;
+}
+
+/* Tema oscuro: se aplica cuando body tiene data-theme="dark" */
+[data-theme="dark"] {
+    --primary-color: #1abc9c; /* se mantiene el acento */
+    --secondary-color: #ecf0f1; /* texto claro en fondo oscuro */
+    --text-color: #ecf0f1; /* color de texto en tema oscuro */
+    --bg-color: #121212; /* fondo de página oscuro */
+    --card-bg: #1e1e1e; /* fondo de tarjetas en oscuro */
+    --nav-bg: rgba(30, 30, 30, 0.9); /* fondo de navegación en oscuro */
+    --border-color: #333; /* bordes más oscuros */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* sombra más marcada en oscuro */
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0; /* elimina margen por defecto */
+    padding: 0; /* elimina padding por defecto */
+    box-sizing: border-box; /* incluye padding y border en el ancho total */
+}
+
+body {
+    /* Tipografía y colores basados en variables */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color); /* color del texto */
+    background-color: var(--bg-color); /* color de fondo */
+    line-height: 1.6; /* altura de línea para lectura */
+    transition: var(--transition); /* transición al cambiar tema */
+}
+
+a {
+    text-decoration: none; /* quita subrayado por defecto */
+    color: var(--primary-color); /* enlaces con color primario */
+}
+
+.container {
+    max-width: 1400px; /* ancho máximo del contenido */
+    margin: 0 auto; /* centra horizontalmente */
+    padding: 0 20px; /* espacio lateral */
+}
+
+/* Header fijo en la parte superior */
+header {
+    background-color: var(--nav-bg); /* fondo del header */
+    position: fixed; /* fija en top */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* por encima de otros elementos */
+    box-shadow: var(--shadow); /* sombra del header */
+    transition: var(--transition);
+}
+
+nav {
+    display: flex; /* organiza elementos en fila */
+    justify-content: space-between; /* separa logo y navegación */
+    align-items: center; /* centra verticalmente */
+    padding: 1rem 0; /* espacio vertical */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color); /* logo con color primario */
+}
+
+.nav-links {
+    display: flex; /* lista horizontal de enlaces */
+    list-style: none; /* quita viñetas */
+}
+
+.nav-links li {
+    margin-left: 2rem; /* espaciado entre enlaces */
+}
+
+.nav-links a {
+    color: var(--text-color); /* color del texto del enlace */
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* color al pasar el mouse */
+}
+
+/* Botón para cambiar tema */
+.theme-toggle {
+    background: none; /* sin fondo */
+    border: none; /* sin borde */
+    color: var(--text-color); /* color del icono */
+    font-size: 1.2rem;
+    cursor: pointer; /* cursor tipo pointer */
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Layout principal: tarjeta de perfil + contenido */
+.main-content {
+    display: flex;
+    margin-top: 70px; /* deja espacio por el header fijo */
+}
+
+/* Tarjeta de perfil lateral */
+.profile-card {
+    width: 350px;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 2rem 1rem;
+    position: sticky; /* se queda visible al hacer scroll */
+    top: 90px; /* distancia desde top cuando está sticky */
+    align-self: flex-start;
+    transition: var(--transition);
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* imagen circular */
+    object-fit: cover; /* cubre el contenedor sin deformar */
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 5px solid var(--primary-color); /* borde de color primario */
+}
+
+.profile-name {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color); /* nombre en color primario */
+}
+
+.profile-title {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    opacity: 0.8; /* ligeramente atenuado */
+}
+
+.profile-info {
+    margin-bottom: 1.5rem;
+}
+
+.profile-info p {
+    margin-bottom: 0.8rem;
+    display: flex; /* icono + texto en la misma línea */
+    align-items: center;
+}
+
+.profile-info i {
+    margin-right: 0.8rem; /* separa icono del texto */
+    color: var(--primary-color); /* iconos en color primario */
+    width: 20px;
+    text-align: center;
+}
+
+/* Enlaces sociales (circulares) */
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Área de contenido principal */
+.content {
+    flex: 1; /* ocupa el espacio restante */
+    padding: 2rem 1rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    opacity: 0; /* inicialmente invisible para animación */
+    transform: translateY(20px); /* desplazada hacia abajo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* transición al hacerse visible */
+}
+
+section.visible {
+    opacity: 1; /* visible cuando IntersectionObserver añade esta clase */
+    transform: translateY(0);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+/* Línea decorativa bajo los títulos */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* About section */
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+/* Skills: grid de habilidades */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between; /* nombre y porcentaje alineados a extremos */
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--primary-color); /* barra de progreso con color primario */
+    border-radius: 5px;
+    transition: width 1.5s ease; /* transición suave cuando cambia el width */
+}
+
+/* Timeline de experiencia */
+.timeline {
+    position: relative;
+    padding-left: 30px; /* espacio para la línea vertical */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--primary-color); /* línea vertical de la timeline */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* punto de cada evento */
+    border: 2px solid var(--primary-color);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--primary-color); /* fecha resaltada */
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.timeline-description {
+    font-size: 0.95rem;
+}
+
+/* Proyectos: grid de tarjetas */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* pequeña elevación al pasar el mouse */
+}
+
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.2rem;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-links {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.project-links a {
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.project-links i {
+    margin-right: 0.3rem;
+}
+
+/* Formulario de contacto */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color); /* borde primario al enfocar */
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); /* sombra sutil al enfocar */
+}
+
+/* Botón enviar */
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--card-bg);
+    margin-top: 2rem;
+}
+
+/* Reglas responsivas para distintos anchos de pantalla */
+@media (max-width: 1200px) {
+    .profile-card {
+        width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column; /* apila verticalmente en pantallas medianas */
+    }
+
+    .profile-card {
+        width: 100%;
+        position: static;
+        margin: 1rem 0;
+    }
+
+    .content {
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* oculta enlaces en navbar en móviles; podría añadirse un menú hamburguesa */
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}

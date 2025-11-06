@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portafolio</div>
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#experience">Experiencia</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <!-- img: usa id para manipular desde JS, src relativo a index.html.
+                     onerror: si no carga, sustituye por un placeholder público -->
+                <img id="profileImg" src="assets/mi_foto.jpg" alt="Foto de perfil - Sebastian Llano" class="profile-img"
+                    onerror="this.onerror=null;this.src='https://via.placeholder.com/200?text=Sin+imagen';">
+
+                <h1 class="profile-name">Sebastian llano Marin </h1>
+                <p class="profile-title">Desarrollador Full Stack</p>
+
+                <div class="profile-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Villamaria </p>
+                    <p><i class="fas fa-envelope"></i>sebastian.llano55444@ucaldas.edu.co </p>
+                    <p><i class="fas fa-phone"></i> +57 320 7147665 </p>
+                    <p><i class="fas fa-birthday-cake"></i> 15 Septiembre, 2003</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="content">
+                <!-- About Section -->
+                <section id="about">
+                    <h2>Sobre mí</h2>
+                    <div class="about-text">
+                        <p>Hola, soy Sebastian Llano, un desarrollador junior Full Stack. Me apasiona resolver problemas
+                            complejos y crear experiencias de usuario excepcionales.</p>
+                        <p>Mi enfoque se centra en escribir código limpio, mantenible y eficiente, siguiendo las mejores
+                            prácticas de la industria. Tengo experiencia trabajando tanto en proyectos personales que me
+                            ha permitido adaptarme a diferentes entornos y metodologías de trabajo.</p>
+                        <p>Cuando no estoy programando, disfruto de los videojugos , el senderismo y aprender sobre
+                            nuevas tecnologías. Creo firmemente en el aprendizaje continuo y en mantenerme actualizado
+                            con las últimas tendencias en desarrollo web.</p>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills">
+                    <h2>Habilidades</h2>
+                    <div class="skills-container">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML5</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>CSS3</span>
+                                <span>25%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>5%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Java</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience">
+                    <h2>Experiencia</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - Presente</div>
+                            <h3 class="timeline-title">Desarrollador Junior Fronted</h3>
+                            <p class="timeline-company">Alsedi SOLUTION. </p>
+                            <p class="timeline-description">Ayude con el desarrollo de la web utilizando lenguales como
+                                angular, Node.js. Implementé arquitecturas escalables y mejoré el rendimiento de las
+                                aplicaciones en un 40%.</p>
+                        </div>
+
+
+                </section>
+
+
+
+
+                <!-- Contact Section -->
+                <section id="contact">
+                    <h2>Contacto</h2>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sebastian llano. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
